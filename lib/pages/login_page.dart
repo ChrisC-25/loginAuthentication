@@ -16,6 +16,9 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
 
   final passwordController = TextEditingController();
+  final snackBar = SnackBar(
+    content: Text('Wrong Email!'),
+  );
 
   void signUserIn() async {
     showDialog(
@@ -37,6 +40,7 @@ class _LoginPageState extends State<LoginPage> {
       // pop the loading circle
       Navigator.pop(context);
       // WRONG EMAIL
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
 
@@ -51,15 +55,15 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 50),
-            
+
                 // logo
                 const Icon(
                   Icons.lock,
                   size: 100,
                 ),
-            
+
                 const SizedBox(height: 50),
-            
+
                 // welcome back, you've been missed!
                 Text(
                   'Sign in fellow human!',
@@ -68,25 +72,25 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 16,
                   ),
                 ),
-            
+
                 const SizedBox(height: 25),
-            
+
                 MyTextField(
                   controller: emailController,
                   hintText: 'Username',
                   obscureText: false,
                 ),
-            
+
                 const SizedBox(height: 10),
-            
-                 MyTextField(
+
+                MyTextField(
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: true,
                 ),
-            
+
                 const SizedBox(height: 10),
-            
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
@@ -99,14 +103,14 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-            
+
                 const SizedBox(height: 25),
-            
+
                 MyButton(
                   text: "Sign in",
                   onTap: signUserIn,
                 ),
-            
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
@@ -133,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-            
+
                 const SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -141,9 +145,9 @@ class _LoginPageState extends State<LoginPage> {
                     SquareTile(imagePath: 'lib/imgs/google.png'),
                   ],
                 ),
-            
+
                 const SizedBox(height: 50),
-            
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
