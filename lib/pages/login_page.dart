@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
 
   final passwordController = TextEditingController();
   final snackBar = SnackBar(
-    content: Text('Wrong Email!'),
+    content: Text('Wrong Email or Password!'),
   );
 
   void signUserIn() async {
